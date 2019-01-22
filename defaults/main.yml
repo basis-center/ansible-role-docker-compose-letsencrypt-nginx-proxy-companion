@@ -1,0 +1,7 @@
+---
+
+dclnpc_repo: https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion.git
+dclnpc_version: master
+dclnpc_dir: /opt/docker-compose-letsencrypt-nginx-proxy-companion
+dclnpc_config_network_options: ''
+dclnpc_config_network: webproxy

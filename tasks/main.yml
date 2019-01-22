@@ -1,0 +1,19 @@
+---
+
+- name: Checkout repo
+  become: yes
+  git:
+    repo: "{{ dclnpc_repo }}"
+    version: "{{ dclnpc_version }}"
+    dest: "{{ dclnpc_dir }}"
+
+- name: Place config
+  become: yes
+  template:
+    src: templates/.env.j2
+    dest: '{{ dclnpc_dir }}/.env'
+
+- name: Start
+  shell: "{{ dclnpc_dir }}/start.sh"
+  args:
+    chdir: "{{ dclnpc_dir }}"
