@@ -17,3 +17,10 @@
   shell: "{{ dclnpc_dir }}/start.sh"
   args:
     chdir: "{{ dclnpc_dir }}"
+
+- name: Connect to networks
+  shell: |
+    {%raw%}
+    for i in web gen letsencrypt; do docker network ls --format "docker network connect {{.Name}} nginx-$i" | sh -; done
+    {%endraw%}
+  ignore_errors: yes
